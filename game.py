@@ -40,19 +40,19 @@ def fly_animation():
     if fly_index >= len(fly_fling):fly_index = 0
     fly_surface = fly_fling[int(fly_index)]
 
-def snail_animation():
+def calabaza_animation():
     """anima el movimiento de la calabaza"""
-    global snail_surface, snail_index
-    snail_index += 0.1
-    if snail_index >= len(snail_walk):snail_index = 0
-    snail_surface = snail_walk[int(snail_index)]
+    global calabaza_surface, calabaza_index
+    calabaza_index += 0.1
+    if calabaza_index >= len(calabaza_walk):calabaza_index = 0
+    calabaza_surface = calabaza_walk[int(calabaza_index)]
 
 def dragon_animation():
     """anima el movimiento del dragon"""
     global dragon_surface, dragon_index
     dragon_index += 0.1
     if dragon_index >= len(dragon_walk):dragon_index = 0
-    dragon_surface = dragon_walk[int(snail_index)]
+    dragon_surface = dragon_walk[int(calabaza_index)]
 
 def obstacle_movement(enemy_list):
     """
@@ -66,8 +66,8 @@ def obstacle_movement(enemy_list):
                 dragon_animation()
                 screen.blit(dragon_surface, enemy_rect)
             elif enemy_rect.bottom == 300:
-                snail_animation()
-                screen.blit(snail_surface, enemy_rect)
+                calabaza_animation()
+                screen.blit(calabaza_surface, enemy_rect)
             else:
                 fly_animation()
                 screen.blit(fly_surface, enemy_rect)
@@ -120,15 +120,15 @@ token_rect = token_surface.get_rect(center=(randint(200, 600), 250))
 enemy_killed_count = 0
 
 #primer enemigo
-snail_surface_1 = pygame.image.load("public/calabaza/calabaza1.png").convert_alpha()
-snail_surface_2 = pygame.image.load("public/calabaza/calabaza2.png").convert_alpha()
-snail_surface_3 = pygame.image.load("public/calabaza/calabaza3.png").convert_alpha()
-snail_surface_4 = pygame.image.load("public/calabaza/calabaza4.png").convert_alpha()
+calabaza_surface_1 = pygame.image.load("public/calabaza/calabaza1.png").convert_alpha()
+calabaza_surface_2 = pygame.image.load("public/calabaza/calabaza2.png").convert_alpha()
+calabaza_surface_3 = pygame.image.load("public/calabaza/calabaza3.png").convert_alpha()
+calabaza_surface_4 = pygame.image.load("public/calabaza/calabaza4.png").convert_alpha()
 #imagenes para animarlo
-snail_walk = [snail_surface_1, snail_surface_2, snail_surface_3, snail_surface_4]
-snail_index = 0
-snail_surface = snail_walk[snail_index]
-snail_rect = snail_surface.get_rect(bottomright = (600, 300))
+calabaza_walk = [calabaza_surface_1, calabaza_surface_2, calabaza_surface_3, calabaza_surface_4]
+calabaza_index = 0
+calabaza_surface = calabaza_walk[calabaza_index]
+calabaza_rect = calabaza_surface.get_rect(bottomright = (600, 300))
 #sgundo enimigo
 fly_surface_1 = pygame.image.load("public/Fly/Fly1.png").convert_alpha()
 fly_surface_2 = pygame.image.load("public/Fly/Fly2.png").convert_alpha()
@@ -143,8 +143,8 @@ dragon_surface_3 = pygame.image.load("public/dragon/dragon3.png").convert_alpha(
 dragon_surface_4 = pygame.image.load("public/dragon/dragon4.png").convert_alpha()
 dragon_walk = [dragon_surface_1, dragon_surface_2, dragon_surface_3, dragon_surface_4]
 dragon_index = 0
-dragon_surface = snail_walk[snail_index]
-dragon_rect = snail_surface.get_rect(bottomright = (1000, 301))
+dragon_surface = dragon_walk[dragon_index]
+dragon_rect = dragon_surface.get_rect(bottomright = (1000, 301))
 enemy_list = []
 #gravedad para el jugador
 gravity_player = 0
@@ -184,13 +184,13 @@ while(True):
         if event.type == pygame.KEYDOWN and game_active == False:
             if event.key == pygame.K_SPACE:
                 game_active = True
-                snail_rect.left = 800
+                calabaza_rect.left = 800
                 dragon_rect.left = 1000
                 start_time = int(pygame.time.get_ticks() / 1000)
         # enemigos que aparecen al azar con random
         if event.type == obstacle_time and game_active:
             if randint(0, 2):
-                enemy_list.append(snail_surface.get_rect(bottomright = (randint(900, 1100), 300)))
+                enemy_list.append(calabaza_surface.get_rect(bottomright = (randint(900, 1100), 300)))
             elif randint(0, 3):
                 enemy_list.append(dragon_surface.get_rect(bottomright = (randint(900, 1100), 301)))
             else:
