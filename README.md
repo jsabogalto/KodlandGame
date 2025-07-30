@@ -1,6 +1,15 @@
 # KodlandGame
-Desarrollo del proyecto juego en PyGame
-El proyecto contiene su entorno virtual en python con las dependencias que utilice para realizarlo entonces solo es descargarlo y activar el enterno para su ejecucion, contiene una carpeta public la cual contiene las imagenes en formato png del mapa y personajes del juego, el proyecto contienen funciones personalizadas para renderizar y animar los personasjes ademas de registrar e inyectar las coliciones de los rectangulos de los objetos ,en el bucle principal verifica si se ingresamos dos acciones la primera es la tecla de espacio con la cual se iniciara el juego y la tecla k con la cual podremos atacar a los enemigos con hachas inicialmente tendremos 10 y conforme pase el juego las usaremos y obtendremos mas, en la partida tendremos 3 vidas por cada colision perderemos una hasta que se agoten y el juego finalice.
+El proyecto incluye su entorno virtual en Python con las dependencias utilizadas para su desarrollo. Por lo tanto, solo es necesario descargarlo y activar el entorno para su ejecución.
+
+Contiene una carpeta public que incluye las imágenes en formato PNG del mapa y de los personajes del juego. El proyecto implementa funciones personalizadas para renderizar y animar a los personajes, así como para gestionar las colisiones entre los rectángulos de los objetos.
+
+En el bucle principal se verifican dos acciones clave:
+
+La tecla espacio, con la cual se inicia el juego.
+
+La tecla F, que permite atacar a los enemigos lanzando hachas.
+
+Inicialmente, el jugador cuenta con 10 hachas. A medida que avanza el juego, podrá usarlas y conseguir más. Durante la partida, el jugador tiene 3 vidas; por cada colisión se pierde una vida hasta que se agoten y el juego finalice.
 
 
 
